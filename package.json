@@ -1,0 +1,9 @@
+
+{
+  "name": "google-indexing-tool",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "googleapis": "^105.0.0"
+  }
+}
