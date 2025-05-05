@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Indexing Tool</title>
+</head>
+<body>
+  <h1>Submit URL to Google Indexing API</h1>
+  <form id="submitForm">
+    <input type="text" id="urlInput" placeholder="Enter URL" required>
+    <button type="submit">Submit</button>
+  </form>
+  <pre id="response"></pre>
+
+  <script>
+    document.getElementById('submitForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const url = document.getElementById('urlInput').value;
+      const response = await fetch('/api/index', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+      });
+      const data = await response.json();
+      document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
